@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from pathlib import Path
 
 st.set_page_config(
     page_title="Prediccion de Ventas - Rossmann",
@@ -156,10 +156,12 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+BASE_DIR = Path(__file__).resolve().parents[1]
+DATA_DIR = BASE_DIR / "01_data"
 
-RUTA_DATOS = "../01_data/datos_dashboard.csv"
-RUTA_METRICAS = "../01_data/metricas_modelos.csv"
-RUTA_ESCENARIOS = "../01_data/resumen_escenarios.csv"
+RUTA_DATOS = DATA_DIR / "datos_dashboard.csv"
+RUTA_METRICAS = DATA_DIR / "metricas_modelos.csv"
+RUTA_ESCENARIOS = DATA_DIR / "resumen_escenarios.csv"
 
 COLUMNAS_DATOS = [
     "Date",
